@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title> Travel reservation form </title>
+
+</head>
+<body>
+
+    <h1> Travel reservation form </h1>
+    <h3> * denotes mandotory </h3>
+
+    <form method="get">
+
+
+    <label> Full name*: </label> <br> 
+    <input type="text" placeholder="FirstName LastName" autofocus required/><br>
+
+    <label> Email address*: </label> <br> 
+    <input type="email" placeholder="EMAIL_ADDRESS" required/><br>
+
+    <label for="package"> Select Tour Package*: </label><br>
+    <select name="package" id="package" required>
+     <option value="goa"> Goa </option>
+     <option value="andhra-pradesh"> Andhra Pradesh </option>
+     <option value="haryana"> Haryana </option>
+     <option value="assam"> Assam </option>
+    </select><br>
+    
+    <label> Arrival date*: </label> <br>
+    <input type="text" placeholder="m/d/y" pattern="[0-9]{8}" required/><br>
+
+    <label> Number of persons*: </label> <br> 
+    <input type="number" placeholder="UNKNOWN_TYPE" min="1" max="9" required/><br>
+
+    <label> What would you want to avail?* </label> <br>
+    Boarding <input type="checkbox" name="avail"/><br>
+    Fooding <input type="checkbox" name="avail"/><br>
+    Sight seeing<input type="checkbox" name="avail"/><br>
+
+    <label> Discount Coupon Code: </label> <br> 
+    <input type="text" placeholder="UNKNOWN_TYPE" pattern="[a-zA-Z 1-9]{6}"/><br>
+
+    <label> I agree </label> <input type="radio" name="term" value="agree" checked/>
+    <label> I disagree </label> <input type="radio" name="term" value="disagree" required/><br>
+
+    <input type="submit" value="Complete reservation"/><br>
+
+    </form>
+
+</body>
+</html>

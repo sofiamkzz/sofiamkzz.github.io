@@ -1,0 +1,35 @@
+.esquerda-cima {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.esquerda-baixo {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+
+.direita-cima {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+
+.direita-baixo {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+}

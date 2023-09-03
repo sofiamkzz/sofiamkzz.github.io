@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+
+<h1>Survey Form</h1>
+<p>Let us know how we can improve freeCodeCamp</p>
+
+<div class="image"></div>
+
+<div class="container">
+<form>
+    
+<label for="name">* Name: </label><input type="text" id="name" placeholder="Enter your name" required><br><br>
+<label for="email">* Email: </label><input type="email" id="email" placeholder="Enter your email" required><br><br>
+<label for="age">* Age: </label><input type="number" id="age" placeholder="Age" min="1" max="100" required><br><br>
+<label for="roles">Which option best describes your current role? </label><select id="roles"><option>Student</option></select><br><br>
+<label for="recommend">* How likely is taht you would recommend freeCodeCamp to a friend? </label>
+<input type="radio" name="recommend" id="definitely" value="Definitely"><label for="definitely"> Definitely </label>
+<input type="radio" name="recommend" id="maybe" value="Maybe"><label for="maybe"> Maybe </label>
+<input type="radio" name="recommend" id="not-sure" value="Not-sure"><label for="not-sure"> Not sure </label><br><br>
+<label>What do you like most in FCC: </label><select id="like"><option>Select an option</option></select><br><br>
+<label for="things"> Things that should be improved in the future (check all that apply):</label><br><br>
+<input type="checkbox" id="idfe" name="thing" value="Front-end Projects"><label for="idfe"> Front-end Projects </label><br><br>
+<input type="checkbox" id="idbe" name="thing" value="Back-end Projects"><label for="idbe"> Back-end Projects </label><br><br>
+<input type="checkbox" id="iddv" name="thing" value="Data Visualization"><label for="iddv"> Data Visualization </label><br><br>
+
+</form>
+</div>
+
+</body>
+</html>

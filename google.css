@@ -1,0 +1,33 @@
+.center {
+    text-align: center;
+}
+
+#box {
+    width: 500px; 
+    height: 25px; 
+    border: solid rgb(118, 118, 118) 1px;
+    border-radius: 10px;
+}
+
+#button-1, #button-2 {
+    font-size: 15px; 
+    cursor: pointer; 
+    border:  1px;
+    border-radius: 10px;
+}
+
+.cabecalho {
+    position: absolute; top: 0%; right: 0%;
+}
+
+.rodape-esquerda {
+    position: absolute; bottom: 0%; left:0%; word-spacing: normal;
+}
+
+.rodape-direita {
+    position: absolute; bottom: 0%; right: 0%;
+}
+
+a:hover{
+    color: darkgray
+}
