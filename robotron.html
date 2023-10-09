@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="robo-fav.ico" type="image/x-icon">
+    <title>Robotron 2000</title>
+    <style>
+        html {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            height: 95vh;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Altere a cor dos mais tecnológicos robotrons!</h2>
+    <img id="image" src="robotron-amarelo.png" height="370px">
+    
+    <div class="row">
+        <button onclick="voltaCor()"> << </button> 
+        <button onclick="avancaCor()"> >> </button> 
+    </div>
+
+    <script>
+         var amarelo = "robotron-amarelo.png";
+         var azul = "robotron-azul.png";
+         var branco = "robotron-branco.png";
+         var preto = "robotron-preto.png";
+         var rosa = "robotron-rosa.png";
+         var vermelho = "robotron-vermelho.png";
+
+         var i = 1;
+
+function avancaCor() {
+    i++;
+
+    if (i == 1) {
+       document.getElementById("image").src= amarelo;
+    }
+
+    else if (i == 2) {
+       document.getElementById("image").src= azul;
+    }
+
+    else if (i == 3) {
+       document.getElementById("image").src= branco;
+    }
+
+    else if  (i == 4) {
+       document.getElementById("image").src= preto;
+    }
+
+    else if  (i == 5) {
+       document.getElementById("image").src= rosa;
+    }
+
+    else if  (i == 6) {
+       document.getElementById("image").src= vermelho;
+    }
+
+  }
+
+  function voltaCor() {
+    i--;
+
+    if  (i == 5) {
+       document.getElementById("image").src= rosa;
+    }
+
+    else if  (i == 4) {
+       document.getElementById("image").src= preto;
+    }
+
+    else if (i == 3) {
+       document.getElementById("image").src= branco;
+    }
+
+    else if (i == 2) {
+       document.getElementById("image").src= azul;
+    }
+
+    else if (i == 1) {
+       document.getElementById("image").src= amarelo;
+    }
+    
+  }
+    </script>
+    
+</body>
+</html>

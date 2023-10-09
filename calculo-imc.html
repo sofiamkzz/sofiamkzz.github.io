@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC'S Calcs</title>
+
+    <style>
+        
+        html {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 25px;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+
+        }
+        
+        form {
+            display: flex;
+            flex-direction:row;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            height: 50vh;
+        }
+
+    </style>
+</head>
+<body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+ <form>
+
+    <h3>IMC'S Calcs</h3>
+
+    <div class="dados">
+        <label>Nome: </label><input type="text" id="nome" required/><br><br>
+        <label>Peso: </label><input type="number" min="0" max="300" id="peso" required/><br><br>
+        <label>Altura: </label><input type="number" min="0" max="300" id="altura" required/><br><br>
+        <p id="demo"></p>
+        <input type="button" onclick="calcula_imc()" value="Calcular IMC"/>   
+    </div> <br>  
+
+ </form>
+
+    <script>
+
+    function calcula_imc() {
+        let v_nome = document.getElementById("nome").value;
+        let v_peso = document.getElementById("peso").value;
+        let v_altura = document.getElementById("altura").value;
+        let imc = v_peso / (v_altura*v_altura);
+        let imc_bonito = imc.toFixed(2)
+        if(imc > 0 && imc <= 100) {
+            document.getElementById("demo").innerHTML = `Olá, ${v_nome}. 
+        O seu IMC é de ${imc_bonito}.`;
+        }
+        
+        else {
+            document.getElementById("demo").innerHTML = `Olá, ${v_nome}. 
+        Lamentamos o erro inesperado. Por favor, verifique se as informações inseridas estão corretas, e tente novamente.`;
+        }
+
+    }
+
+    </script>
+</body>
+</html>
