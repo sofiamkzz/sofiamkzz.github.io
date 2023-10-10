@@ -1,0 +1,43 @@
+.container{
+    display: flex;
+}
+
+.coluna-1 {
+    height: 250px;
+    float: left;
+}
+
+.linha-1, .linha-2, .linha-3 {
+    height: 45px;
+    color: Slategray;
+    font-family: Georgia;
+    font-size: 14px;
+}
+
+.matricula, .nome, .email {
+    height: 35px;
+    color: azure;
+}
+
+.txtMatricula, .txtNome, .txtEmail {
+    height: 30px;
+    width: 75px;
+}
+
+.coluna-2 {
+   float: right;
+   display: grid;
+   cursor: hand;
+}
+
+#txtMatricula{
+  width: 60px;
+}
+
+#txtNome {
+  width: 95px;
+}
+
+#txtEmail {
+  width: 150px;
+}
