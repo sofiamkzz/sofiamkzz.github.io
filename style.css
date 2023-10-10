@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-image: linear-gradient(to left, #806868 50%, #ad8d8d 50%);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 header {
