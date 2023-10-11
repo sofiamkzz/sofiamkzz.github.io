@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowels Counter</title>
+    <style>
+         h2 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            height: 70vh;
+        }
+
+        h2 {
+            color: rgba(150, 94, 103, 0.329); 
+            font-size: 40px;
+        }
+
+        </style>
+</head>
+<body>
+    <h2>Contador de vogais</h2>
+    <input type="text" id="palavra" placeholder="Digite uma palavra aqui">
+    <input type="button" id="botao" onclick="verificar()" value="Checar a quantidade de vogais"/>
+
+    <p id="mensagem" color="white">.</p>
+
+    <script>
+        function verificar() {
+        let word = document.getElementById("palavra").value;
+        let vogais = 'aeiouAEIOUÁÉÍÓÚáéíóúÃÕãõâêîôûÂÊÎÔÛ';
+        let soma = 0;
+        for(let i = 0; i < vogais.length; i++) {
+            for(let j = 0; j < word.length; j++) {
+        if(word[j] === vogais[i]) {
+              soma += 1;
+           }
+           }
+        }
+
+        if(soma > 0) {
+            document.getElementById("mensagem").innerHTML = `A quantidade de vogais presentes na palavra fornecida é ${soma}.`;
+        }
+
+        else {
+            document.getElementById("mensagem").innerHTML = `Não há vogais no input informado!`;
+        }
+    }
+    </script>
+</body>
+</html>

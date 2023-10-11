@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM paragraph style</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+        }
+    </style>
+</head>
+<body>
+
+     <p id="text">JavaScript Exercises - w3resource</p>
+
+     <input type="button" id="botao" onclick="modify()" value="Alterar style">
+
+     <script>
+
+        function modify() {
+            text.style.color = "pink";
+            text.style.fontFamily = "Impact";
+            text.style.fontSize = "50px";
+        }
+
+     </script>
+</body>
+</html>

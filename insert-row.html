@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM DOM DOM DOM</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Manuseando tabelas</h2>
+    <input type="text" id="numRows" placeholder="Digite um número"/>
+    <input type="button" id="addRows" onclick="add_rows()" value="Adicionar linhas à tabela">
+    <p id="alert">.</p>
+       
+    <table id="table1" border="1px">
+       <tr>
+        <td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+       </tr>
+       <tr>
+        <td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+       </tr>
+    </table><br>
+
+    <script>
+       function add_rows() {
+       var table = document.getElementById("table1");
+       var quantity = document.getElementById("numRows").value;
+
+        if (quantity >= 1 && quantity <= 10) {
+            for(let i = 1; i <= quantity; i++) {
+                var row = table.insertRow(-1);
+                var th_cell = row.insertCell(0);
+                var nd_cell = row.insertCell(1)
+                th_cell.innerHTML = "Row? cell1";
+                nd_cell.innerHTML = "Row? cell2"; 
+            }
+            document.getElementById("alert").innerHTML = "Linha(s) adicionada(s) com sucesso!";
+        }
+
+        
+        else {
+            document.getElementById("alert").innerHTML = "O valor deve ser numérico e entre 1 a 10.";
+    
+        }
+    }
+         
+    </script>
+</body>
+</html>
