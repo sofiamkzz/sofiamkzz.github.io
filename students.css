@@ -1,10 +1,11 @@
-.container{
+.container {
     display: flex;
+    gap: 10px;
 }
 
 .coluna-1 {
     height: 250px;
-    float: left;
+    flex-direction: column;
 }
 
 .linha-1, .linha-2, .linha-3 {
@@ -25,9 +26,8 @@
 }
 
 .coluna-2 {
-   float: right;
-   display: grid;
-   cursor: hand;
+   cursor: pointer;
+   flex-direction: column;
 }
 
 #txtMatricula{
