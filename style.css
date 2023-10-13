@@ -71,7 +71,6 @@ a:hover {
 
 .redes-sociais, .claro, .escuro {
     display: flex;
-    margin: 10px 5px;
 }
 
 .esquerda svg {
