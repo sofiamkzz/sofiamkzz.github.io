@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apartar's names</title>
-
+    <title>Mitose</title>
     <style>
 
         h3 {
@@ -14,26 +13,62 @@
             align-items: center;
         }
 
+
+        #nome-completo, #nome, #sobrenome {
+            width: 200px;
+            height: 30px;
+            border-color: rgb(0, 0, 0);
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+        }
+
+
+        #seta, #limpa {
+            width: 35px;
+            height: 30px;
+            border-color: rgba(132, 146, 148, 0.534);
+            border-radius: 2px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
         html {
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: 25px;
+             min-height: 100vh;
         }
-    
         
         form {
             display: flex;
-            flex-direction:row;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             gap: 100px;
             height: 70vh;
+            border: solid 1px;
+        }
+
+        a {
+            text-decoration: none; 
+            color: rgb(0, 0, 0);
+        }
+        
+        footer {
+            position: absolute;
+            bottom: 10px;   
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px 0;
         }
 
     </style>
 </head>
 <body>
 
-    <h3>Apartar's names</h3>
+    <h3>Mitose</h3>
 
     <form>
 
@@ -43,19 +78,24 @@
     </div>
 
     <div class="botao">
-        <input type="button" onclick="modificador()" id="seta" value=">>" required>
+        <input type="button" onclick="modificador()" id="seta" value=">>" required><br><br>
+        <input type="button" onclick="limpar()" id="limpa" value="🧹" required>
     </div>
 
     <div class="nomes-separados">
         <div class="name">
-            <label for="nome">Nome: </label><input type="block" id="nome" required><br><br>
+            <label for="nome">Nome: </label><input type="text" id="nome"  disabled><br><br>
         </div>
         <div class="name1">
-            <label for="sobrenome">Sobrenome: </label><input type="block" id="sobrenome" required>  
+            <label for="sobrenome">Sobrenome: </label><input type="text" id="sobrenome" disabled>  
         </div>
     </div>
 
     </form>
+
+    <footer>
+        2023 - Developed by <a href="https://github.com/sofiamkzz"><strong>SofiaMkzz</strong></a>
+    </footer>
 
     <script>
 
@@ -63,10 +103,20 @@
         let x = document.getElementById("nome-completo").value;
         let corte = x.split(" ")
         let subs_nome = corte[0] //nome
-        let subs_sobrenome = corte[1] //sobrenome
+        let subs_sobrenome = corte[1]//sobrenome
+
+        if(subs_sobrenome === undefined) {
+            subs_sobrenome = "";
+        }
+
         document.getElementById("nome").value = subs_nome;
         document.getElementById("sobrenome").value = subs_sobrenome;
+    }
 
+    function limpar() {
+        document.getElementById("nome-completo").value = "";
+        document.getElementById("nome").value = "";
+        document.getElementById("sobrenome").value = "";
     }
 
     </script>
