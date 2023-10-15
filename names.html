@@ -101,8 +101,8 @@
     function modificador() {
         let x = document.getElementById("nome-completo").value;
         let corte = x.split(" ")
-        let subs_nome = corte[0] //nome
-        let subs_sobrenome = x.split(1).join(" ");//sobrenome
+        let subs_nome = corte[0]; //nome
+        let subs_sobrenome = corte.slice(1).join(" "); //sobrenome
 
         if(subs_sobrenome === undefined) {
             subs_sobrenome = "";
