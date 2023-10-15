@@ -67,12 +67,11 @@
     </style>
 </head>
 <body>
-
+    
     <h3>Mitose</h3>
-
+    
     <form>
-
-
+        
     <div class="div-nomeCompleto">
         <label for="nome-completo">Nome completo: </label><input type="text" id="nome-completo" required>  
     </div>
@@ -103,7 +102,7 @@
         let x = document.getElementById("nome-completo").value;
         let corte = x.split(" ")
         let subs_nome = corte[0] //nome
-        let subs_sobrenome = corte[1]//sobrenome
+        let subs_sobrenome = x.split(1).join(" ");//sobrenome
 
         if(subs_sobrenome === undefined) {
             subs_sobrenome = "";
