@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotron 2.0</title>
+    <style>
+      body{
+        display: grid;
+        grid-template-columns: 500px 1fr 2fr;
+        gap:10px;
+      }
+
+      img {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+</head>
+<body>
+        <img src="robotron-preto.png" id="robotron" alt="Foto do Robotron">
+    <div class="container">
+        <div class="property">
+          <br>
+          <hr>
+            <p>BRAÇOS</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div><br>
+        <hr>
+        <div class="property">
+            <p>BLINDAGEM</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div><br>
+        <hr>
+        <div class="property">
+            <p>NÚCLEOS</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div><br>
+        <hr>
+        <div class="property">
+            <p>PERNAS</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div><br>
+        <hr>
+    </div>
+
+    <script>
+        function updatePropertyValue(element, increment) {
+            const valueElement = element.querySelector(".value");
+            let value = parseInt(valueElement.innerText);
+
+            if (increment) {
+                if (value < 10) {
+                    value++;
+                }
+            } else {
+                if (value > 0) {
+                    value--;
+                }
+            }
+
+            valueElement.innerText = value;
+        }
+
+        const propertyElements = document.querySelectorAll(".property");
+        propertyElements.forEach((element) => {
+            const incrementButton = element.querySelector(".increment");
+            const decrementButton = element.querySelector(".decrement");
+
+            incrementButton.addEventListener("click", () => {
+                updatePropertyValue(element, true);
+            });
+
+            decrementButton.addEventListener("click", () => {
+                updatePropertyValue(element, false);
+            });
+        });
+    </script>
+</body>
+</html>
