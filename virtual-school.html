@@ -14,7 +14,7 @@
         border-radius: solid 5px;
         width: 250px;
       }
-      
+
       #submit {
         border-radius: solid 5px;
         width: 250px;
@@ -26,7 +26,9 @@
     <h3>Formulário de Pré-Matrícula</h3>
     <form onsubmit="return validarFormulario()">
         <hr width="500px">
-        <h3>Dados pessoais:</h3>
+        <h3>Dados Pessoais:</h3>
+        <hr width="500px"><br> 
+      
         <label for="nome">Nome do Aluno:</label>
         <input type="text" id="nome" required><br><br>
 
@@ -47,6 +49,7 @@
 
         <hr>
         <h3>Informações de matrícula:</h3>
+        <hr><br>
 
         <label for="serie">Série:</label>
         <select id="serie" required>
@@ -67,29 +70,29 @@
         </select><br><br>
 
         <label>Turno:</label><br>
-      
+
         <input type="radio" id="manha" name="turno">
         <label for="manha">Manhã</label><br>
-      
+
         <input type="radio" id="tarde" name="turno">
         <label for="tarde">Tarde</label><br><br>
 
         <label>Atividades Extracurriculares:</label><br>
         <input type="checkbox" id="info" name="atividades">
         <label for="esporte">Informática</label><br>
-      
+
         <input type="checkbox" id="musica" name="atividades">
         <label for="musica">Música</label><br>
 
         <input type="checkbox" id="balet" name="atividades">
         <label for="arte">Ballet</label><br>
-      
+
         <input type="checkbox" id="pintura" name="atividades">
         <label for="pintura">Pintura</label><br>
-    
+
         <input type="checkbox" id="judo" name="atividades">
         <label for="teatro">Judô</label><br>
-      
+
         <input type="checkbox" id="futebol" name="atividades">
          <label for="teatro">Futebol</label><br><br>
         <hr>
