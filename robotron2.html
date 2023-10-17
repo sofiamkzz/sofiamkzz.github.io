@@ -1,88 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotron 2.0</title>
+    <link rel="icon" href="robo-fav.ico" type="image/x-icon">
+    <title>Robotron 2000</title>
     <style>
-      body{
-        display: grid;
-        grid-template-columns: 500px 1fr 2fr;
-        gap:10px;
-      }
+        html {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
 
-      img {
-        width: 500px;
-        height: 500px;
-      }
+        body {
+            display: grid;
+           grid-template-columns: 400px 200px 200px;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            height: 95vh;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
     </style>
 </head>
 <body>
-        <img src="robotron-preto.png" id="robotron" alt="Foto do Robotron">
-    <div class="container">
-        <div class="property">
-          <br>
-          <hr>
-            <p>BRAÇOS</p>
-            <button class="decrement">-</button>
-            <span class="value">0</span>
-            <button class="increment">+</button>
-        </div><br>
-        <hr>
-        <div class="property">
-            <p>BLINDAGEM</p>
-            <button class="decrement">-</button>
-            <span class="value">0</span>
-            <button class="increment">+</button>
-        </div><br>
-        <hr>
-        <div class="property">
-            <p>NÚCLEOS</p>
-            <button class="decrement">-</button>
-            <span class="value">0</span>
-            <button class="increment">+</button>
-        </div><br>
-        <hr>
-        <div class="property">
-            <p>PERNAS</p>
-            <button class="decrement">-</button>
-            <span class="value">0</span>
-            <button class="increment">+</button>
-        </div><br>
-        <hr>
+    <img id="image" src="robotron-branco.png" height="370px">
+    
+    <div class="row">
+        <button onclick="voltaCor()"> << </button> 
+        <button onclick="avancaCor()"> >> </button> 
     </div>
 
+  <div class="container">
+      <div class="property">
+        <br>
+        <hr>
+          <p>BRAÇOS</p>
+          <button class="decrement">-</button>
+          <span class="value">0</span>
+          <button class="increment">+</button>
+      </div><br>
+      <hr>
+      <div class="property">
+          <p>BLINDAGEM</p>
+          <button class="decrement">-</button>
+          <span class="value">0</span>
+          <button class="increment">+</button>
+      </div><br>
+      <hr>
+      <div class="property">
+          <p>NÚCLEOS</p>
+          <button class="decrement">-</button>
+          <span class="value">0</span>
+          <button class="increment">+</button>
+      </div><br>
+      <hr>
+      <div class="property">
+          <p>PERNAS</p>
+          <button class="decrement">-</button>
+          <span class="value">0</span>
+          <button class="increment">+</button>
+      </div><br>
+      <hr>
+  </div>
+
     <script>
-        function updatePropertyValue(element, increment) {
-            const valueElement = element.querySelector(".value");
-            let value = parseInt(valueElement.innerText);
+         var amarelo = "robotron-amarelo.png";
+         var azul = "robotron-azul.png";
+         var branco = "robotron-branco.png";
+         var preto = "robotron-preto.png";
+         var rosa = "robotron-rosa.png";
+         var vermelho = "robotron-vermelho.png";
 
-            if (increment) {
-                if (value < 10) {
-                    value++;
-                }
-            } else {
-                if (value > 0) {
-                    value--;
-                }
-            }
+         var i = 1;
 
-            valueElement.innerText = value;
-        }
+function avancaCor() {
+    i++;
 
-        const propertyElements = document.querySelectorAll(".property");
-        propertyElements.forEach((element) => {
-            const incrementButton = element.querySelector(".increment");
-            const decrementButton = element.querySelector(".decrement");
+    if (i == 1) {
+       document.getElementById("image").src= amarelo;
+    }
 
-            incrementButton.addEventListener("click", () => {
-                updatePropertyValue(element, true);
-            });
+    else if (i == 2) {
+       document.getElementById("image").src= azul;
+    }
 
-            decrementButton.addEventListener("click", () => {
-                updatePropertyValue(element, false);
-            });
-        });
+    else if (i == 3) {
+       document.getElementById("image").src= branco;
+    }
+
+    else if  (i == 4) {
+       document.getElementById("image").src= preto;
+    }
+
+    else if  (i == 5) {
+       document.getElementById("image").src= rosa;
+    }
+
+    else if  (i == 6) {
+       document.getElementById("image").src= vermelho;
+    }
+
+  }
+
+  function voltaCor() {
+    i--;
+
+    if  (i == 5) {
+       document.getElementById("image").src= rosa;
+    }
+
+    else if  (i == 4) {
+       document.getElementById("image").src= preto;
+    }
+
+    else if (i == 3) {
+       document.getElementById("image").src= branco;
+    }
+
+    else if (i == 2) {
+       document.getElementById("image").src= azul;
+    }
+
+    else if (i == 1) {
+       document.getElementById("image").src= amarelo;
+    }
+    
+  }
+
+      function updatePropertyValue(element, increment) {
+          const valueElement = element.querySelector(".value");
+          let value = parseInt(valueElement.innerText);
+
+          if (increment) {
+              if (value < 10) {
+                  value++;
+              }
+          } else {
+              if (value > 0) {
+                  value--;
+              }
+          }
+
+          valueElement.innerText = value;
+      }
+
+      const propertyElements = document.querySelectorAll(".property");
+      propertyElements.forEach((element) => {
+          const incrementButton = element.querySelector(".increment");
+          const decrementButton = element.querySelector(".decrement");
+
+          incrementButton.addEventListener("click", () => {
+              updatePropertyValue(element, true);
+          });
+
+          decrementButton.addEventListener("click", () => {
+              updatePropertyValue(element, false);
+          });
+      });
     </script>
+    
 </body>
 </html>
