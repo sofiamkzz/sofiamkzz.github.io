@@ -36,6 +36,11 @@ a:hover {
 div.bloco {
     padding: 10px 15px 30px 20px;
     background-color: #2A2A2A;
+    border-radius: 15px;
+}
+
+div.bloco:hover {
+    scale: 1.01;
 }
 
 @media screen and (max-width: 750px) {
