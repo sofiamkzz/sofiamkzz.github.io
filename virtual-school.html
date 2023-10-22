@@ -24,7 +24,7 @@
 <body>
     <h1>Escola Virtual</h1>
     <h3>Formulário de Pré-Matrícula</h3>
-    <form onsubmit="return validarFormulario()">
+    <form onsubmit="return validacao()">
         <hr width="500px">
         <h3>Dados Pessoais:</h3>
         <hr width="500px"><br> 
@@ -78,31 +78,33 @@
         <label for="tarde">Tarde</label><br><br>
 
         <label>Atividades Extracurriculares:</label><br>
-        <input type="checkbox" id="info" name="atividades">
-        <label for="esporte">Informática</label><br>
+
+        <input type="checkbox" id="informatica" name="atividades">
+        <label for="informatica">Informática</label><br>
 
         <input type="checkbox" id="musica" name="atividades">
         <label for="musica">Música</label><br>
 
-        <input type="checkbox" id="balet" name="atividades">
-        <label for="arte">Ballet</label><br>
+        <input type="checkbox" id="ballet" name="atividades">
+        <label for="ballet">Ballet</label><br>
 
         <input type="checkbox" id="pintura" name="atividades">
         <label for="pintura">Pintura</label><br>
 
         <input type="checkbox" id="judo" name="atividades">
-        <label for="teatro">Judô</label><br>
+        <label for="judo">Judô</label><br>
 
         <input type="checkbox" id="futebol" name="atividades">
-         <label for="teatro">Futebol</label><br><br>
+        <label for="futebol">Futebol</label><br><br>
+        
         <hr>
 
         <input type="submit" value="Enviar Formulário" id="submit">
-        <button type="button" onclick="limpar()">Limpar Campos</button>
+        <button type="reset">Limpar Campos</button>
     </form>
 
   <script>
-      function validarFormulario() {
+      function validacao() {
           var nome = document.getElementById("nome").value;
           var dataNascimento = document.getElementById("nascimento").value;
           var nomeMae = document.getElementById("mae").value;
@@ -116,7 +118,7 @@
           var dddsValidos = ["11", "12", "13", "14", "15", "16", "17", "18", "19", "21", "22", "24", "27", "28", "31", "32", "33", "34", "35", "37", "38", "41", "42", "43", "44", "45", "46", "47", "48", "49", "51", "53", "54", "55", "61", "62", "63", "64", "65", "66", "67", "68", "69", "71", "73", "74", "75", "77", "79", "81", "82", "83", "84", "85", "86", "87", "88", "89", "91", "92", "93", "94", "95", "96", "97", "98", "99"];
 
           if (nome === "" || dataNascimento === "" || nomeMae === "" || nomePai === "" || telefone === "" || email === "" || serie === "" || turno === null) {
-              alert("Todos os campos, exceto atividades extracurriculares, são obrigatórios.");
+              alert("Campos obrigatórios não preenchidos!");
               return false;
           }
 
@@ -137,21 +139,8 @@
               return false;
           }
 
-          alert("Cadastro realizado com sucesso!");
-          return true;
-      }
-
-      function limpar() {
-          document.getElementById("nome").value = "";
-          document.getElementById("nascimento").value = "";
-          document.getElementById("mae").value = "";
-          document.getElementById("pai").value = "";
-          document.getElementById("telefone").value = "";
-          document.getElementById("email").value = "";
-          document.getElementById("serie").value = "";
-          document.querySelectorAll('input[name="atividades"]').forEach(function(checkbox) {
-              checkbox.checked = false;
-          });
+              alert("Cadastro realizado!");
+              return true;
       }
   </script>
 </body>
