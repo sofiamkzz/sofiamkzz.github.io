@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas simples</title>
+</head>
+<body>
+    Tarefa: Desenvolva uma aplicação de lista de tarefas simples. Os usuários devem ser capazes de adicionar tarefas digitando em um campo de entrada e pressionando a tecla "Enter". 
+    Quando as tarefas forem adicionadas, elas devem aparecer em uma lista na página da web, usando ouvintes de eventos para lidar com o evento de pressionar tecla e atualizar o DOM.
+    <label>Campo de entrada: </label><input type="text" id="campo"></input>
+
+    <div>
+        <ul id="identificador"></ul>
+    </div>
+    
+    <script>
+        document.getElementById("campo").addEventListener("keypress", function(event){
+            if (event.key === "Enter") {
+              document.getElementById("identificador").innerHTML += `<li>${document.getElementById("campo").value}</li>`
+            }
+        });
+    </script>
+</body>
+</html>
