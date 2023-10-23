@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrato Bancário</title>
+    <style>
+    input, select, table {
+    box-sizing: border-box;
+    height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    }
+
+    body {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    }
+
+    .center-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: minmax(350px, 500px) minmax(350px, 500px);
+    }
+
+    div.bloco {
+    padding: 10px 15px 30px 20px;
+    border-radius: 15px;
+    grid-row: 1;
+    }  
+    </style>
+</head>
+<body>
+    <div class="center-container">
+
+    <div class="bloco">
+
+        <h1>Extrato Bancário</h1>
+    
+    <form id="extratoForm">
+        <label for="categoria">Categoria:</label>
+        <select name="categoria" required>
+            <option value="mercado">Mercado</option>
+            <option value="transporte">Transporte</option>
+            <option value="entretenimento">Entretenimento</option>
+        </select>
+        <br><br>
+        <label for="data">Data:</label>
+        <input type="date" name="data" required>
+        <br><br>
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" step="0.01" required>
+        <br><br>
+        <input type="submit" value="Adicionar Transação">
+    </form>
+</div>
+<div class="bloco">
+        <h2>Resumo</h2>
+        <p>Total Gastos em Mercado: <span id="totalMercado">0.00</span></p>
+        <p>Total Gastos em Transporte: <span id="totalTransporte">0.00</span></p>
+        <p>Total Gastos em Entretenimento: <span id="totalEntretenimento">0.00</span></p>
+        <p>Total Geral: <span id="totalGeral">0.00</span></p>
+    
+    <h2>Tabela de gastos:</h2>
+    <table id="resultado" border-radius="1px">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+</div>
+
+    <script>
+        const extratoBancario = [];
+
+        let totalMercado = 0.00;
+        let totalTransporte = 0.00;
+        let totalEntretenimento = 0.00;
+
+        function atualizarResultado() {
+            const extratoForm = document.getElementById('extratoForm');
+            const table = document.getElementById('resultado');
+
+            const categoriaFiltro = extratoForm.elements['categoria'].value;
+            const dataFiltro = extratoForm.elements['data'].value;
+            const valorMinimoFiltro = parseFloat(extratoForm.elements['valor'].value);
+
+            let totalGastos = 0.00;
+
+            extratoBancario.forEach(transacao => {
+                if ((!categoriaFiltro || categoriaFiltro === transacao.categoria) &&
+                    (!dataFiltro || dataFiltro === transacao.data) &&
+                    (!valorMinimoFiltro || valorMinimoFiltro <= transacao.valor)) {
+                    const row = table.insertRow(-1);
+                    row.insertCell(0).innerHTML = transacao.data;
+                    row.insertCell(1).innerHTML = transacao.categoria;
+                    row.insertCell(2).innerHTML = transacao.valor.toFixed(2);
+                    totalGastos += transacao.valor;
+
+                      // Atualizar o total de gastos por categoria
+                      if (transacao.categoria === 'mercado') {
+                        totalMercado += transacao.valor;
+                    } else if (transacao.categoria === 'transporte') {
+                        totalTransporte += transacao.valor;
+                    } else if (transacao.categoria === 'entretenimento') {
+                        totalEntretenimento += transacao.valor;
+                    }
+
+                }
+            });
+        
+
+            totalGeral = extratoBancario.reduce((total, transacao) => total + transacao.valor, 0);
+            const totalGeralElement = document.getElementById('totalGeral');
+            totalGeralElement.innerHTML = totalGeral.toFixed(2);
+
+            const totalMercadoElement = document.getElementById('totalMercado');
+            totalMercadoElement.textContent = totalMercado.toFixed(2);
+
+            const totalTransporteElement = document.getElementById('totalTransporte');
+            totalTransporteElement.textContent = totalTransporte.toFixed(2);
+
+            const totalEntretenimentoElement = document.getElementById('totalEntretenimento');
+            totalEntretenimentoElement.textContent = totalEntretenimento.toFixed(2);
+        }
+
+        const extratoForm = document.getElementById('extratoForm');
+        extratoForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Evitar a recarga da página
+
+            const novaCategoria = extratoForm.elements['categoria'].value;
+            const novaData = extratoForm.elements['data'].value;
+            const novoValor = parseFloat(extratoForm.elements['valor'].value);
+
+            const novaTransacao = {
+                data: novaData,
+                categoria: novaCategoria,
+                valor: novoValor
+            };
+
+            extratoBancario.push(novaTransacao);
+
+            atualizarResultado();
+
+            extratoForm.reset();
+        });
+
+        atualizarResultado();
+    </script>
+</body>
+</html>
