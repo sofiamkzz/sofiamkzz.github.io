@@ -12,29 +12,48 @@
 
         body {
             display: grid;
-           grid-template-columns: 400px 200px 200px;
+            grid-template-columns: repeat(4fr, 100px, 200px, 100px, 100px);
             justify-content: center;
             align-items: center;
-            gap: 50px;
-            height: 95vh;
+            gap: 100px;
         }
 
-        .row {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-        }
+      #voltar {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        position: absolute;
+        left: 42%;
+        top: 50%;
+      }
+
+      #image {
+        grid-column-start: 2;
+        grid-column-end: 2;
+      }
+
+      #avancar {
+        grid-column-start: 3;
+        grid-column-end: 3;
+        position: absolute;
+        left: 48%;
+        top: 50%
+      }
+
+      .container {
+        grid-column-start: 4;
+        grid-column-end: 4;
+      }
 
     </style>
 </head>
 <body>
-    <img id="image" src="robotron-branco.png" height="370px">
-    
-    <div class="row">
-        <button onclick="voltaCor()"> << </button> 
-        <button onclick="avancaCor()"> >> </button> 
-    </div>
 
+      <button onclick="voltaCor()" id="voltar"> << </button> 
+  
+      <button onclick="avancaCor()" id="avancar"> >> </button> 
+  
+    <img id="image" src="robotron-branco.png" height="370px">
+  
   <div class="container">
       <div class="property">
         <br>
